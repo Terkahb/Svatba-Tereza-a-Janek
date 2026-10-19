@@ -1,0 +1,561 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tereza & Janek | Naše svatba</title>
+  <meta name="description" content="Tereza a Janek vás zvou na svou svatbu 10. dubna.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #f7f4ef;
+      --dark: #303229;
+      --olive: #777d65;
+      --muted: #77776e;
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--dark);
+      font-family: var(--sans);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    /* ÚVODNÍ STRÁNKA */
+
+    .hero {
+      min-height: 100vh;
+      min-height: 100svh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+
+      background:
+        linear-gradient(
+          rgba(25, 27, 22, 0.28),
+          rgba(25, 27, 22, 0.42)
+        ),
+        url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2200&q=85")
+        center 50% / cover no-repeat;
+    }
+
+    .topbar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 6%;
+    }
+
+    .logo {
+      font: italic 25px var(--serif);
+      text-decoration: none;
+    }
+
+    .nav {
+      display: flex;
+      gap: 28px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+
+    .hero-content {
+      padding: 100px 20px;
+      animation: fadeIn 1.2s ease;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-size: 10px;
+      line-height: 2;
+    }
+
+    h1 {
+      font: 400 clamp(60px, 11vw, 135px)/1.05 var(--serif);
+      letter-spacing: -4px;
+      margin: 30px 0;
+    }
+
+    h1 span {
+      display: block;
+      font-style: italic;
+      font-size: 0.48em;
+      margin: 6px 0;
+    }
+
+    .hero-date {
+      font-size: 13px;
+      letter-spacing: 6px;
+      margin-top: 30px;
+    }
+
+    .scroll {
+      position: absolute;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 9px;
+      letter-spacing: 3px;
+    }
+
+    /* SPOLEČNÝ PŘÍBĚH */
+
+    section {
+      padding: 100px 24px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 950px;
+      margin: auto;
+    }
+
+    .intro {
+      text-align: center;
+    }
+
+    .label {
+      color: var(--olive);
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: 4px;
+    }
+
+    h2 {
+      font: 400 clamp(38px, 6vw, 62px)/1.2 var(--serif);
+      margin: 24px 0;
+    }
+
+    .description {
+      max-width: 550px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 2;
+    }
+
+    .signature {
+      font: italic 27px var(--serif);
+      color: var(--olive);
+      margin-top: 30px;
+    }
+
+    /* INFORMACE O SVATBĚ */
+
+    .details {
+      background: #eae8df;
+      text-align: center;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 55px;
+    }
+
+    .detail {
+      padding: 25px;
+      border-right: 1px solid rgba(48, 50, 41, 0.17);
+    }
+
+    .detail:last-child {
+      border-right: none;
+    }
+
+    .detail-number {
+      font: italic 38px var(--serif);
+      color: var(--olive);
+    }
+
+    .detail h3 {
+      font: 400 25px var(--serif);
+      margin: 18px 0 12px;
+    }
+
+    .detail p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 2;
+    }
+
+    /* ODPOČÍTÁVÁNÍ */
+
+    .countdown {
+      text-align: center;
+    }
+
+    .timer {
+      display: flex;
+      justify-content: center;
+      gap: clamp(20px, 6vw, 65px);
+      margin-top: 45px;
+    }
+
+    .time strong {
+      display: block;
+      font: 400 clamp(35px, 6vw, 58px) var(--serif);
+    }
+
+    .time span {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 9px;
+    }
+
+    /* POTVRZENÍ ÚČASTI */
+
+    .rsvp {
+      background: #35392f;
+      color: var(--cream);
+      text-align: center;
+    }
+
+    .rsvp .label {
+      color: #c6cbb8;
+    }
+
+    .rsvp .description {
+      color: #d0d0c8;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 17px 30px;
+      border: 1px solid #d9d9ce;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 10px;
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      background: var(--cream);
+      color: var(--dark);
+    }
+
+    footer {
+      text-align: center;
+      padding: 35px 20px;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    footer strong {
+      display: block;
+      color: var(--dark);
+      font: italic 24px var(--serif);
+      margin-bottom: 10px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* MOBILNÍ TELEFONY */
+
+    @media (max-width: 650px) {
+      .topbar {
+        padding: 22px 18px;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      .nav {
+        gap: 12px;
+      }
+
+      .nav a {
+        font-size: 8px;
+        letter-spacing: 1px;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .hero {
+        background-position: 55% center;
+      }
+
+      section {
+        padding: 75px 20px;
+      }
+
+      .details-grid {
+        grid-template-columns: 1fr;
+        margin-top: 35px;
+      }
+
+      .detail {
+        border-right: none;
+        border-bottom: 1px solid rgba(48, 50, 41, 0.17);
+        padding: 30px 10px;
+      }
+
+      .detail:last-child {
+        border-bottom: none;
+      }
+
+      .timer {
+        gap: 17px;
+      }
+
+      .time span {
+        font-size: 8px;
+        letter-spacing: 1px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HLAVNÍ STRÁNKA -->
+
+  <header class="hero" id="domu">
+    <div class="topbar">
+      <a href="#domu" class="logo">T & J</a>
+
+      <nav class="nav">
+        <a href="#nas-pribeh">Náš příběh</a>
+        <a href="#detaily">Informace</a>
+        <a href="#rsvp">Účast</a>
+      </nav>
+    </div>
+
+    <div class="hero-content">
+      <p class="eyebrow">S radostí vás zveme na naši svatbu</p>
+
+      <h1>
+        Tereza
+        <span>&</span>
+        Janek
+      </h1>
+
+      <p class="hero-date">10 · 04</p>
+    </div>
+
+    <a href="#nas-pribeh" class="scroll">Náš společný den ↓</a>
+  </header>
+
+  <!-- NÁŠ PŘÍBĚH -->
+
+  <section class="intro" id="nas-pribeh">
+    <div class="container">
+      <p class="label">Dva příběhy. Jedna společná cesta.</p>
+
+      <h2>
+        Začíná naše<br>
+        <em>navždy.</em>
+      </h2>
+
+      <p class="description">
+        Jsme šťastní, že můžeme náš velký den sdílet
+        s lidmi, které máme rádi. Přijďte s námi oslavit
+        lásku, radost a začátek jedné krásné společné kapitoly.
+      </p>
+
+      <p class="signature">S láskou, Tereza & Janek</p>
+    </div>
+  </section>
+
+  <!-- INFORMACE -->
+
+  <section class="details" id="detaily">
+    <div class="container">
+      <p class="label">Poznamenejte si datum</p>
+
+      <h2>Náš svatební den</h2>
+
+      <p class="description">
+        Těšíme se, až tento výjimečný okamžik
+        prožijeme společně s vámi.
+      </p>
+
+      <div class="details-grid">
+
+        <article class="detail">
+          <div class="detail-number">01</div>
+          <h3>Kdy</h3>
+          <p>
+            10. dubna<br>
+            Čas bude upřesněn
+          </p>
+        </article>
+
+        <article class="detail">
+          <div class="detail-number">02</div>
+          <h3>Kde</h3>
+          <p>
+            Místo obřadu<br>
+            Brzy doplníme
+          </p>
+        </article>
+
+        <article class="detail">
+          <div class="detail-number">03</div>
+          <h3>Oblečení</h3>
+          <p>
+            Slavnostní a elegantní<br>
+            Detaily doplníme
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ODPOČÍTÁVÁNÍ -->
+
+  <section class="countdown">
+    <div class="container">
+      <p class="label">Už se nemůžeme dočkat</p>
+      <h2>Do našeho „ano“</h2>
+
+      <div class="timer">
+        <div class="time">
+          <strong id="days">00</strong>
+          <span>Dní</span>
+        </div>
+
+        <div class="time">
+          <strong id="hours">00</strong>
+          <span>Hodin</span>
+        </div>
+
+        <div class="time">
+          <strong id="minutes">00</strong>
+          <span>Minut</span>
+        </div>
+
+        <div class="time">
+          <strong id="seconds">00</strong>
+          <span>Sekund</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POTVRZENÍ ÚČASTI -->
+
+  <section class="rsvp" id="rsvp">
+    <div class="container">
+      <p class="label">Budete u toho s námi?</p>
+
+      <h2>Dejte nám vědět</h2>
+
+      <p class="description">
+        Prosíme, potvrďte svou účast.
+        Budeme se těšit na společné objetí, přípitek
+        a den plný krásných vzpomínek.
+      </p>
+
+      <!-- ZDE DOPLŇTE SVŮJ E-MAIL -->
+
+      <a
+        class="button"
+        href="mailto:vase-adresa@example.com?subject=Potvrzeni%20svatebni%20ucasti"
+      >
+        Potvrdit účast
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <strong>Tereza & Janek</strong>
+    10. dubna · S láskou a vděčností
+  </footer>
+
+  <script>
+    /*
+      Změňte rok na skutečný rok vaší svatby.
+      Zde je nastaven rok 2027 a čas 14:00.
+    */
+
+    const svatba = new Date(2027, 3, 10, 14, 0, 0);
+
+    function odpocitavani() {
+      let rozdil = svatba.getTime() - Date.now();
+
+      if (rozdil < 0) rozdil = 0;
+
+      const dny = Math.floor(rozdil / 86400000);
+      const hodiny = Math.floor((rozdil % 86400000) / 3600000);
+      const minuty = Math.floor((rozdil % 3600000) / 60000);
+      const sekundy = Math.floor((rozdil % 60000) / 1000);
+
+      document.getElementById("days").textContent = dny;
+      document.getElementById("hours").textContent =
+        String(hodiny).padStart(2, "0");
+      document.getElementById("minutes").textContent =
+        String(minuty).padStart(2, "0");
+      document.getElementById("seconds").textContent =
+        String(sekundy).padStart(2, "0");
+    }
+
+    odpocitavani();
+    setInterval(odpocitavani, 1000);
+  </script>
+
+</body>
+</html>
